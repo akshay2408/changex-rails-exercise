@@ -3,6 +3,9 @@
 <%= render @applicant %>
 
 <div>
+  <% if @applicant.comments.exists? %>
+    <%= link_to "View all comments", comments_path(applicant_id: @applicant), data: { turbo: false } %> |
+  <% end %>
   <%= link_to "Edit this applicant", edit_applicant_path(@applicant) %> |
   <%= link_to "Back to applicants", applicants_path %>
 
